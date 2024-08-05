@@ -1,13 +1,14 @@
 using System;
 using System.IO;
+using System.Text.RegularExpressions;
 
 class Program
 {
     static bool MatchPattern(string inputLine, string pattern)
     {
-        if (pattern == @"\d")
+        if (pattern.Contains(@"\d") || pattern.Contains(@"\w"))
         {
-            return System.Text.RegularExpressions.Regex.IsMatch(inputLine, @"\d");
+            return Regex.IsMatch(inputLine, pattern);
         }
         else if (pattern.Length == 1)
         {
